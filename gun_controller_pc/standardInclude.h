@@ -1,0 +1,11 @@
+//Standard headers
+#include <tchar.h>
+#include "windows.h"
+#include <stdint.h>
+#include <string>
+#include <stdlib.h>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+#include <map>
+#include <math.h>
