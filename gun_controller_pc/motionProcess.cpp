@@ -54,13 +54,13 @@ void motionProcess::mouse_move_vertical(int *mouse_y, motionData * data){
 	double temp;
 	//look up (gyro value higher then middle)
 	//look down (gyro value lower then middle)
-	if(data->gyro_4_y.value > gyro_end_point && data->gyro_4_y.value < 2*data->gyro_4_y.mid - gyro_end_point)
-	{	//use precise gyro for low movement
-		mouse_move_y = -((data->gyro_4_y.value - data->gyro_4_y.mid)/(4.0 * mouse_sensitivity_y));
-	}else
-	{
+	//if(data->gyro_4_y.value > gyro_end_point && data->gyro_4_y.value < 2*data->gyro_4_y.mid - gyro_end_point)
+	//{	//use precise gyro for low movement
+	//	mouse_move_y = -((data->gyro_4_y.value - data->gyro_4_y.mid)/(4.0 * mouse_sensitivity_y));
+	//}else
+	//{
 		mouse_move_y = -((data->gyro_y.value - data->gyro_y.mid)/mouse_sensitivity_y);
-	}
+	//}
 	mouse_move_y += mouse_move_hist_y; //add in what was left last time
 	mouse_move_hist_y = modf(mouse_move_y, &temp); //remember any partial movement
 	if(mouse_move_y >= 0)
@@ -82,13 +82,13 @@ void motionProcess::mouse_move_horizontal(int *mouse_x, motionData * data){
 	double temp;
 	//look left (gyro value higher then middle)
 	//look right (gyro value lower then middle)
-	if(data->gyro_4_x.value > gyro_end_point && data->gyro_4_x.value < 2*data->gyro_4_x.mid - gyro_end_point)
-	{	//use precise gyro for low movement
-		mouse_move_x = -((data->gyro_4_x.value - data->gyro_4_x.mid)/(4.0 * (mouse_sensitivity_x)));
-	}else
-	{
+	//if(data->gyro_4_x.value > gyro_end_point && data->gyro_4_x.value < 2*data->gyro_4_x.mid - gyro_end_point)
+	//{	//use precise gyro for low movement
+		//mouse_move_x = -((data->gyro_4_x.value - data->gyro_4_x.mid)/(4.0 * (mouse_sensitivity_x)));
+	//}else
+	//{
 		mouse_move_x = -((data->gyro_x.value - data->gyro_x.mid)/(mouse_sensitivity_x));
-	}
+	//}
 	mouse_move_x += mouse_move_hist_x; //add in what was left last time
 	mouse_move_hist_x = modf (mouse_move_x , &temp); //remember any partial movement
 	if(mouse_move_x >= 0)
